@@ -70,6 +70,24 @@ input.onGesture(Gesture.ScreenDown, function () {
         . . . . .
         `)
 })
+input.onButtonPressed(Button.AB, function () {
+    basic.showLeds(`
+        . . # . .
+        . . # . .
+        . . # . .
+        . . # . .
+        . . # . .
+        `)
+    radio.sendNumber(4)
+    basic.pause(100)
+    basic.showLeds(`
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        . . . . .
+        `)
+})
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 0) {
         basic.showLeds(`
@@ -93,6 +111,14 @@ radio.onReceivedNumber(function (receivedNumber) {
             . . . # .
             # # # # #
             . . . # .
+            . . # . .
+            `)
+    } else if (receivedNumber == 4) {
+        basic.showLeds(`
+            . . # . .
+            . . # . .
+            . . # . .
+            . . # . .
             . . # . .
             `)
     } else {
